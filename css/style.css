@@ -21,17 +21,54 @@ body {
     background-color: #F5F5F5;
 }
 
-button, strong {
+button {
+    text-transform: uppercase;
+	min-width: 88px;
+	border-radius: 5%;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin: 8px;
+	border-color: none; 
+	color: black;
+	height: 36px;
+	background-color: white;
+	font-size: 16px;
+	
+}
+button.pri{
+	/* Primary Text: black
+  *Primary color_text : white
+  * Primary color: #3F51B5 (INDIGO)*/
+	color: white;
+	background-color: #3F51B5;
+	
+}
+.acc{
+	/* Accent color: #CDDC39 (LIME)
+  * Accent color_text: black
+  */
+	background-color: #CDDC39;
+	color: black;
+}
+strong {
     text-transform: uppercase;
 }
+.acc:hover{
+	background-color: #9DAA1E;
+}
+button:hover {
+    background-color: #9DAA1E;
+}
+
 
 /* LAYOUT */
 
 #channels {
+	z-index: -1;
     position: absolute;
     height: 100%;
     width: 40%;
-
+	
     background-color: #3F51B5; /* temporary background color to see the effect, is completely hidden now */
 }
 
@@ -40,12 +77,13 @@ button, strong {
     height: 100%;
     width: 60%;
     left: 40%;
+
 }
 
 #messages {
     position: absolute;
     width: 100%;
-    top: 64px;
+    top: 74px;
     bottom: 72px;
     overflow-y: auto;
 }
@@ -66,6 +104,7 @@ h1 {
     padding: 24px 16px 20px 16px;
 
     /* MOOCUS image alignment */
+
     position: relative; /* we need this, so that the image's absolute position is relative to the app bar */
 }
 
@@ -78,18 +117,41 @@ h1#left-app-bar img {
     left: 16px;
     bottom: 0;
 }
+h1#right-app-bar {
+	position: relative;
+	top: 0;
+	display: flex;
+	align-content: stretch;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+h1#right-app-bar input {
+    /* styles */
+    font-size: 16px;
+    border: none;
+    /* alignment */
+    flex-grow: 1;
+}
+h1#right-app-bar button {
+    /* styles */
+    font-size: 16px;
+    border: none;
+    /* alignment */
+	vertical-align: middle;
+}
 
 h1 a {
     color: white;
 }
 
-h1 i {
-    /* #7 #icns #str  */
+ /*h1 i {
+    #7 #icns #str  
     position:absolute;
     right: 16px;
-    /* #7 #icns #small adjust icon size */
+    /* #7 #icns #small adjust icon size 
     font-size:24px;
-}
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}*/
 
 /* CHANNELS LIST */
 
@@ -101,6 +163,8 @@ ul {
     top: 64px; /* the app bar's height */
     bottom: 72px; /* the tab bar's height */
     overflow-y: auto; /* this adds scroll bars on demand */
+	z-index: -1;
+	
 }
 
 li {
@@ -152,22 +216,23 @@ li.selected {
 /* TAB BAR */
 
 #tab-bar, #chat-bar {
-    background-color: white;
+   background-color: white;
     text-align: center;
     position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
+
 }
 
 #tab-bar button, #chat-bar button {
-    background-color: white;
+    /*background-color: white; */
     border: none;
-    font-size: 13px;
+   /* font-size: 13px;*/
     width: 33%;
     height: 72px;
     padding: 16px;
-
+	border-radius: 5%;
     /* flexify the buttons by growing them equally */
     flex-grow: 1;
 }
@@ -197,9 +262,9 @@ li.selected {
 
 #emojis {
     /* emoji menu */
-    /* colors and borders */
+    /* colors */
     background-color:white;
-    border: 1px solid black;
+   
 
     /* size & alignment */
     position: absolute;
@@ -284,4 +349,92 @@ li.selected {
 
 .message.own {
     margin-left: 17.5%;
+}
+/* shadow boxes code from Scott Roa . ALL CREDIT GOES TO SCOTT ROA https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-material-design-elevations*/
+.shadow--2dp {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.shadow--3dp {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+.shadow--4dp {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+.shadow--6dp {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+}
+
+.shadow--8dp {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+.shadow--16dp {
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.shadow--24dp {
+    box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+}
+/* float icon */
+#flt { 	
+	position: absolute;
+	bottom: 100px;
+	right: 16px;	
+	border-radius: 50%;
+	background-color: #CDDC39;
+	height: 30px;
+	width: 30px;
+	color: black;
+	text-align: center; 
+	vertical-align: middle;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+   
+}
+#flt:hover {
+    background-color: #9DAA1E;
+}
+#snd { 	
+	/* Accent color: #CDDC39 (LIME)
+  * Accent color_text: black
+  */
+	border-radius: 5%;
+	background-color: #CDDC39;
+	height: 30px;
+	width: 30px;
+	color: black;
+	text-align: center; 
+	vertical-align: middle;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+   
+}
+#snd:hover {
+    background-color: #9DAA1E;
+}
+#emojis-button {
+	/* 
+  *Primary color_text : white
+  * Primary color: #3F51B5 (INDIGO)*/
+ 	background-color: #3F51B5; /* (INDIGO) */
+		
+	border-radius: 5%;
+	height: 20px;
+	width: 20px;
+	color: white;
+	text-align: center; 
+	vertical-align: middle;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+button.nobkgd{
+	
+	background-color: #3F51B5;
+	color: white;
+	font-size: 12px;
+	right: 30px;
+	
 }

@@ -1,7 +1,7 @@
 /* start the external action and say hello */
 console.log("App is alive");
 
-
+var channelsArray= [yummy, sevencontinents, killerapp, firstpersononmars, octoberfest];
 /** #7 Create global variable */
 var currentChannel;
 
@@ -143,18 +143,26 @@ function createMessageElement(messageObject) {
         '<button>+5 min.</button>' +
         '</div>';
 }
-
+function hideChat() {
+$('#messages').hide();
+}
 
 function listChannels() {
     // #8 channel onload
     //$('#channels ul').append("<li>New Channel</li>")
 
     // #8 five new channels
-    $('#channels ul').append(createChannelElement(yummy));
+	
+	console.log('List channels:', channelsArray); 
+	for (var i=0; i < channelsArray.length; i++) { 
+		console.log('add channel:', channelsArray[i]); 
+		$('#channels ul').append(createChannelElement(channelsArray[i]));
+	}
+   /* $('#channels ul').append(createChannelElement(yummy));
     $('#channels ul').append(createChannelElement(sevencontinents));
     $('#channels ul').append(createChannelElement(killerapp));
     $('#channels ul').append(createChannelElement(firstpersononmars));
-    $('#channels ul').append(createChannelElement(octoberfest));
+    $('#channels ul').append(createChannelElement(octoberfest));*/
 }
 
 /**
